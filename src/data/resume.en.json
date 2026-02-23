@@ -5,32 +5,32 @@
       "title": "Product Manager",
       "url": "https://example.com",
       "dates": "2024 — Present",
-      "description": "Lead the frontend platform team building a design system used by 40+ engineers. Architected a micro-frontend migration that reduced deployment times by 60% and improved team autonomy. Mentored junior developers and drove adoption of TypeScript across the organization.",
-      "skills": ["TypeScript", "React", "Node.js", "AWS", "Design Systems"]
+      "description": "Own product strategy for Taiwan’s leading Official Document System, scaling revenue from 100M to 200M+ NTD. Lead 10+ cross-functional members to ship human-in-the-loop AI agents and ML routing (85–95% accuracy) for 400+ regulated clients, balancing enterprise customization, scalability, and ISO 27001/27701 compliance.",
+      "skills": ["Strategy", "Agent", "LLM", "Governance", "Leadership"]
     },
     {
       "company": "Galaxy Software Services Corp.",
       "title": "Product Development Manager",
       "url": "https://example.com",
       "dates": "2023 — 2024",
-      "description": "Built and maintained client-facing web applications for enterprise customers. Implemented a real-time collaboration feature using WebSockets that increased user engagement by 35%. Designed RESTful APIs and optimized database queries for a 10x improvement in response times.",
-      "skills": ["React", "Python", "PostgreSQL", "Redis", "Docker"]
+      "description": "Led productization of LLM/NLP-driven document generation by aligning AI Research, Engineering, and Presales teams. Directed secure Azure-based SaaS architecture and evaluated ROI for enterprise customization initiatives, ensuring scalable delivery and measurable business impact in regulated environments.",
+      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "Docker"]
     },
     {
       "company": "Galaxy Software Services Corp.",
-      "title": "Software Designer",
+      "title": "Software Designer & System Analyst",
       "url": "https://example.com",
-      "dates": "2022 — 2023",
-      "description": "Developed responsive marketing sites and e-commerce platforms for agency clients. Introduced component-driven development workflows and automated testing pipelines that cut QA time in half.",
-      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+      "dates": "2021 — 2023",
+      "description": "Designed modular systems using Domain-Driven Design and launched the platform’s first AI-powered semantic search with OpenSearch and vector embeddings. Built DevSecOps pipelines (SAST/DAST/SCA) and delivered TW-FidO digital signature and encryption features to strengthen compliance and security.",
+      "skills": ["DDD", "TDD", "FidO", "Architecture", "DevSecOps"]
     },
     {
       "company": "Galaxy Software Services Corp.",
-      "title": "Junior Developer & System Analyst",
+      "title": "Software Engineer",
       "url": "https://example.com",
       "dates": "2016 — 2022",
-      "description": "Developed responsive marketing sites and e-commerce platforms for agency clients. Introduced component-driven development workflows and automated testing pipelines that cut QA time in half.",
-      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+      "description": "Progressed from junior to senior engineer, developing a browser-based WYSIWYG editor and contributing full-stack features across .NET, SQL, and Kendo UI. Initiated the company’s first ML-based recommendation project in 2019, expanding AI capabilities within the core platform.",
+      "skills": ["Typescript", ".NET", "SQL", "Kendo UI"]
     }
   ]
 }
