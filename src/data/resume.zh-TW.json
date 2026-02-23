@@ -1,0 +1,28 @@
+{
+  "experience": [
+    {
+      "company": "Nexus Technologies",
+      "title": "資深軟體工程師",
+      "url": "https://example.com",
+      "dates": "2022 — 至今",
+      "description": "帶領前端平台團隊建構供 40 位以上工程師使用的設計系統。規劃微前端遷移架構，將部署時間縮短 60%，並提升團隊自主性。指導初階開發者，推動全組織導入 TypeScript。",
+      "skills": ["TypeScript", "React", "Node.js", "AWS", "Design Systems"]
+    },
+    {
+      "company": "Streamline Digital",
+      "title": "軟體工程師",
+      "url": "https://example.com",
+      "dates": "2020 — 2022",
+      "description": "為企業客戶建構與維護面向使用者的網頁應用程式。使用 WebSocket 實作即時協作功能，使用者參與度提升 35%。設計 RESTful API 並優化資料庫查詢，回應時間提升 10 倍。",
+      "skills": ["React", "Python", "PostgreSQL", "Redis", "Docker"]
+    },
+    {
+      "company": "Bright Studio",
+      "title": "初階開發者",
+      "url": "https://example.com",
+      "dates": "2018 — 2020",
+      "description": "為代理商客戶開發響應式行銷網站與電商平台。導入元件驅動的開發流程與自動化測試管線，將 QA 時間縮短一半。",
+      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+    }
+  ]
+}

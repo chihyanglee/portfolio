@@ -1,0 +1,36 @@
+{
+  "experience": [
+    {
+      "company": "Galaxy Software Services Corp.",
+      "title": "Product Manager",
+      "url": "https://example.com",
+      "dates": "2024 — Present",
+      "description": "Lead the frontend platform team building a design system used by 40+ engineers. Architected a micro-frontend migration that reduced deployment times by 60% and improved team autonomy. Mentored junior developers and drove adoption of TypeScript across the organization.",
+      "skills": ["TypeScript", "React", "Node.js", "AWS", "Design Systems"]
+    },
+    {
+      "company": "Galaxy Software Services Corp.",
+      "title": "Product Development Manager",
+      "url": "https://example.com",
+      "dates": "2023 — 2024",
+      "description": "Built and maintained client-facing web applications for enterprise customers. Implemented a real-time collaboration feature using WebSockets that increased user engagement by 35%. Designed RESTful APIs and optimized database queries for a 10x improvement in response times.",
+      "skills": ["React", "Python", "PostgreSQL", "Redis", "Docker"]
+    },
+    {
+      "company": "Galaxy Software Services Corp.",
+      "title": "Software Designer",
+      "url": "https://example.com",
+      "dates": "2022 — 2023",
+      "description": "Developed responsive marketing sites and e-commerce platforms for agency clients. Introduced component-driven development workflows and automated testing pipelines that cut QA time in half.",
+      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+    },
+    {
+      "company": "Galaxy Software Services Corp.",
+      "title": "Junior Developer & System Analyst",
+      "url": "https://example.com",
+      "dates": "2016 — 2022",
+      "description": "Developed responsive marketing sites and e-commerce platforms for agency clients. Introduced component-driven development workflows and automated testing pipelines that cut QA time in half.",
+      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+    }
+  ]
+}

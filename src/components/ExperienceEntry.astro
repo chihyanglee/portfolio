@@ -1,0 +1,44 @@
+---
+interface Props {
+  dates: string;
+  company: string;
+  url?: string;
+  title: string;
+  description: string;
+  skills: string[];
+}
+
+const { dates, company, url, title, description, skills } = Astro.props;
+---
+
+<li class="group relative grid pb-1 sm:grid-cols-8 sm:gap-8 md:gap-4 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+  <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition-all motion-reduce:transition-none lg:block lg:group-hover:bg-slate-200/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg dark:lg:group-hover:bg-slate-800/50" />
+  <header class="z-10 mt-1 mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label={dates}>
+    {dates}
+  </header>
+  <div class="z-10 sm:col-span-6">
+    <h3 class="font-medium leading-snug">
+      <a
+        href={url || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300 focus-visible:text-teal-500 inline-flex items-baseline"
+      >
+        <span>{title} · {company}</span>
+        <svg class="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </h3>
+    <p class="mt-2 text-sm leading-normal">{description}</p>
+    <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+      {skills.map((skill) => (
+        <li class="mr-1.5 mt-2">
+          <span class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-500 dark:text-teal-300">
+            {skill}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</li>

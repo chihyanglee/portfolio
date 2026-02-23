@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import ExperienceEntry from "../../components/ExperienceEntry.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import WritingEntry from "../../components/WritingEntry.astro";
+import { t } from "../../i18n";
+import resumeData from "../../data/resume.zh-TW.json";
+
+const lang = "zh-TW" as const;
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.filter((p) => p.data.lang === "zh-TW" && p.data.featured);
+
+const allWriting = await getCollection("writing");
+const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
+---
+
+<MainLayout lang={lang}>
+  <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-100/75 px-6 py-5 backdrop-blur-sm md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 dark:bg-slate-900/75">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only">{t("nav.about", lang)}</h2>
+    </div>
+    <div class="space-y-4">
+      <p set:html={t("about.p1", lang)} />
+      <p set:html={t("about.p2", lang)} />
+      <p set:html={t("about.p3", lang)} />
+      <p set:html={t("about.p4", lang)} />
+    </div>
+  </section>
+
+  <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-100/75 px-6 py-5 backdrop-blur-sm md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 dark:bg-slate-900/75">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only">{t("nav.experience", lang)}</h2>
+    </div>
+    <ol class="group/list space-y-12">
+      {resumeData.experience.map((entry) => (
+        <ExperienceEntry
+          dates={entry.dates}
+          company={entry.company}
+          url={entry.url}
+          title={entry.title}
+          description={entry.description}
+          skills={entry.skills}
+        />
+      ))}
+    </ol>
+    <div class="mt-12">
+      <a
+        href="/resume-zh.pdf"
+        class="inline-flex items-center font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300"
+      >
+        <span>{t("experience.resume", lang)}</span>
+        <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="projects" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-100/75 px-6 py-5 backdrop-blur-sm md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 dark:bg-slate-900/75">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only">{t("nav.projects", lang)}</h2>
+    </div>
+    <ul class="group/list space-y-12">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          summary={project.data.summary}
+          stack={project.data.stack}
+          slug={project.data.urlSlug}
+          lang={lang}
+        />
+      ))}
+    </ul>
+  </section>
+
+  <section id="writing" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-100/75 px-6 py-5 backdrop-blur-sm md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 dark:bg-slate-900/75">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only">{t("nav.writing", lang)}</h2>
+    </div>
+    <ul class="group/list space-y-12">
+      {writing.map((post) => (
+        <WritingEntry
+          title={post.data.title}
+          date={post.data.date}
+          description={post.data.description}
+          slug={post.data.urlSlug}
+          lang={lang}
+        />
+      ))}
+    </ul>
+  </section>
+
+  <footer class="pb-16 text-sm text-slate-500 sm:pb-0">
+    <p>
+      {t("footer.built", lang)}
+      </a>.
+    </p>
+  </footer>
+</MainLayout>
