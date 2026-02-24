@@ -6,7 +6,7 @@ Personal bilingual portfolio site — single-page two-column layout built with A
 
 - **Astro** (SSG) + TypeScript
 - **Tailwind CSS v4** (CSS-first config, `@tailwindcss/vite` plugin)
-- **Content:** MDX for projects and writing, JSON for resume data
+- **Content:** MDX for projects, JSON for resume data
 - **Deployment:** Static output to VPS via GitHub Actions, served by Caddy with Docker Compose
 
 ## Getting Started
@@ -27,16 +27,13 @@ src/
 │   └── zh/
 │       └── index.astro          # Chinese home (/zh/)
 ├── layouts/
-│   ├── MainLayout.astro         # Two-column shell (index pages)
-│   └── DetailLayout.astro       # Project/writing detail pages
+│   └── MainLayout.astro         # Two-column shell (index pages)
 ├── components/
 │   ├── LeftColumn.astro         # Sticky sidebar: nav, controls, social
 │   ├── ExperienceEntry.astro    # Single experience card
-│   ├── ProjectCard.astro        # Single project card
-│   └── WritingEntry.astro       # Single writing entry
+│   └── ProjectCard.astro        # Single project card
 ├── content/
-│   ├── projects/                # MDX project case studies
-│   └── writing/                 # MDX blog posts
+│   └── projects/                # MDX project case studies
 ├── data/
 │   ├── resume.en.json           # English resume data
 │   └── resume.zh-TW.json       # Chinese resume data
@@ -51,8 +48,8 @@ src/
 ## i18n
 
 Two-locale routing:
-- English: `/`, `/projects/<slug>`, `/writing/<slug>`
-- Traditional Chinese: `/zh/`, `/zh/projects/<slug>`, `/zh/writing/<slug>`
+- English: `/`
+- Traditional Chinese: `/zh/`
 
 Each page sets `<html lang>`, `hreflang` alternates, and canonical URL. UI strings live in `src/i18n/`.
 

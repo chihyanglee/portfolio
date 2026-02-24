@@ -7,7 +7,7 @@
   - Recruiters / HR
   - Product/strategy stakeholders
 - Minimal maintenance, minimal security surface
-- Easy to update content (resume + projects + posts)
+- Easy to update content (resume + projects)
 - Bilingual i18n (basic): EN + zh-TW
 - Light/Dark mode toggle with persistence
 
@@ -20,7 +20,7 @@
 - Astro (SSG) + TypeScript, scaffolded via `pnpm create astro@latest`
 - `@astrojs/mdx` integration for MDX content
 - Content:
-  - MDX for project case studies and writing
+  - MDX for project case studies
   - JSON for resume data
 - Package manager: **pnpm**
 
@@ -30,13 +30,13 @@
 - Light/Dark theme toggle using:
   - `prefers-color-scheme` default
   - persisted override in `localStorage`
-  - applied via `class=”dark”` on `<html>`
+  - applied via `class="dark"` on `<html>`
 
 ### i18n (Basic)
 
 - Two-locale routing with separate paths:
-  - English: `/`, `/projects/<slug>`, `/writing/<slug>`
-  - zh-TW: `/zh/`, `/zh/projects/<slug>`, `/zh/writing/<slug>`
+  - English: `/`
+  - zh-TW: `/zh/`
 - Language switcher in left column that preserves current page/section
 - SEO:
   - canonical + `hreflang` tags (en / zh-Hant-TW)
@@ -44,7 +44,7 @@
 ### Hosting / Deployment (VPS)
 
 - Caddy (recommended) for:
-  - Automatic HTTPS (Let’s Encrypt)
+  - Automatic HTTPS (Let's Encrypt)
   - Static file hosting (or reverse proxy to a small container)
 - Docker Compose for:
   - predictable deployment
@@ -58,14 +58,14 @@
 
 ## Layout: Two-Column Single-Page
 
-The main portfolio is a **single page** with a sticky left column and a scrollable right column. Detail pages (project case studies, blog posts) are separate routes.
+The main portfolio is a **single page** with a sticky left column and a scrollable right column.
 
 ### Left Column (sticky, `position: sticky; top: 0; height: 100vh`)
 
 - **Name** (large heading)
-- **Title / tagline** (1 line, e.g. “Senior Software Engineer”)
+- **Title / tagline** (1 line, e.g. "Senior Software Engineer")
 - **Brief description** (1–2 sentences of positioning)
-- **Section nav** — anchor links to `#about`, `#experience`, `#projects`, `#writing`
+- **Section nav** — anchor links to `#about`, `#experience`, `#projects`
   - Active link highlighted based on scroll position (scroll-spy)
   - Each nav item has a short horizontal indicator line that expands when active
 - **Controls** — Language switch (EN / 中文) + Theme toggle (light/dark)
@@ -83,22 +83,17 @@ All content flows vertically in a single scrollable column. Sections use `id` at
    - Rendered from `resume.json`
    - Each entry: date range (left) + company, title, description, skill tags (right)
    - Hover/focus on an entry subtly highlights it
-   - “View Full Résumé” link at the bottom → PDF download (locale-aware)
+   - "View Full Résumé" link at the bottom → PDF download (locale-aware)
 
 3. **Projects** (`#projects`)
    - Featured projects (3–5 cards)
    - Each card: thumbnail image (optional), title, summary, tech stack tags
-   - Cards link to `/projects/<slug>` case study detail page
-   - “View Full Project Archive” link at the bottom (optional, links to a simple list page)
-
-4. **Writing** (`#writing`)
-   - Recent posts (3–5 entries)
-   - Each entry: title, date, brief description
-   - Links to `/writing/<slug>` detail page
+   - Cards optionally link to external URL
+   - "View Full Project Archive" link at the bottom (optional, links to a simple list page)
 
 ### Footer
 
-- Minimal: short credit line (e.g. “Built with Astro & Tailwind CSS”)
+- Minimal: short credit line (e.g. "Built with Astro & Tailwind CSS")
 - Placed at bottom of right column after last section
 
 ### Responsive / Mobile
@@ -117,7 +112,7 @@ The left column nav highlights the currently visible section as the user scrolls
 ### Implementation
 
 - Inline `<script is:inline>` in `MainLayout.astro` (no Astro island — plain JS is simpler)
-- **Intersection Observer API** observes each section (`#about`, `#experience`, `#projects`, `#writing`)
+- **Intersection Observer API** observes each section (`#about`, `#experience`, `#projects`)
 - On intersect, sets `data-active` attribute on the corresponding nav link; CSS handles styling via `[data-active]`
 - Active state styling: nav text brightens + indicator line widens (CSS transition via `group-[[data-active]]`)
 - Nav click calls `scrollIntoView({ behavior: 'smooth' })` and updates `history.pushState`
@@ -133,27 +128,6 @@ The left column nav highlights the currently visible section as the user scrolls
 | About        | `src/i18n/{lang}.ts` strings       |
 | Experience   | `src/data/resume.{lang}.json`      |
 | Projects     | `src/content/projects/*.mdx` (featured) |
-| Writing      | `src/content/writing/*.mdx` (recent)   |
-
-### Detail Pages (separate routes)
-
-- `/projects/<slug>` — Project case study (full MDX)
-  - Context / problem
-  - Constraints (enterprise, governance, security, scale)
-  - Approach (architecture + trade-offs)
-  - Results (metrics, outcomes)
-  - What you’d do next
-  - Back link to `/#projects`
-
-- `/writing/<slug>` — Blog post (full MDX)
-  - Back link to `/#writing`
-
-- `/zh/projects/<slug>` and `/zh/writing/<slug>` — locale mirrors
-
-### Optional standalone pages
-
-- `/projects` — Full project archive list (if more than 5 projects)
-- `/writing` — Full blog archive list
 
 ---
 
@@ -166,18 +140,12 @@ The left column nav highlights the currently visible section as the user scrolls
 
 ### Section anchors (same page)
 
-- `/#about`, `/#experience`, `/#projects`, `/#writing`
-- `/zh/#about`, `/zh/#experience`, `/zh/#projects`, `/zh/#writing`
-
-### Detail pages
-
-- `/projects/<slug>` and `/zh/projects/<slug>`
-- `/writing/<slug>` and `/zh/writing/<slug>`
+- `/#about`, `/#experience`, `/#projects`
+- `/zh/#about`, `/zh/#experience`, `/zh/#projects`
 
 ### Locale switch behavior
 
 - On main page: switch locale, preserve current section hash
-- On detail page: switch to same slug in other locale; fall back to locale home if translation unavailable
 
 ---
 
@@ -186,7 +154,6 @@ The left column nav highlights the currently visible section as the user scrolls
 ### `src/content/`
 
 - `projects/` (Markdown/MDX)
-- `writing/` (Markdown/MDX)
 
 Frontmatter fields (projects):
 
@@ -199,22 +166,15 @@ Frontmatter fields (projects):
 - `featured` (boolean)
 - `lang` (en | zh-TW)
 - `urlSlug` (shared across languages — named `urlSlug` instead of `slug` because `slug` is reserved by Astro's glob content loader as the entry ID)
+- `url` (optional, external link)
 - `thumbnail` (optional, path to image)
-
-Frontmatter fields (writing):
-
-- `title`
-- `date`
-- `description`
-- `lang` (en | zh-TW)
-- `urlSlug` (shared across languages)
-- `tags` (optional)
+- `sortOrder` (number, controls display order)
 
 Content files use `{name}-en.mdx` / `{name}-zh.mdx` naming to avoid ID collisions in the content store. Schema defined in `src/content.config.ts` using Zod + `glob()` loader.
 
 ### `src/data/resume.en.json` and `src/data/resume.zh-TW.json`
 
-- `experience[]` (company, title, url, dates, description, skills[])
+- `experience[]` (company, title, dates, description, skills[])
 
 Goal: update one JSON file and the experience section updates automatically.
 
@@ -249,11 +209,6 @@ Goal: update one JSON file and the experience section updates automatically.
 - Two index pages sharing the same layout:
   - `src/pages/index.astro` (en)
   - `src/pages/zh/index.astro` (zh-TW)
-- Detail pages:
-  - `src/pages/projects/[slug].astro`
-  - `src/pages/writing/[slug].astro`
-  - `src/pages/zh/projects/[slug].astro`
-  - `src/pages/zh/writing/[slug].astro`
 - Shared layout components accept `lang` prop
 - Copy/strings:
   - `src/i18n/en.ts`
@@ -263,8 +218,8 @@ Goal: update one JSON file and the experience section updates automatically.
 ### SEO additions
 
 - For each page:
-  - set `<html lang=”en”>` or `<html lang=”zh-Hant-TW”>`
-  - `link rel=”alternate” hreflang=”...”` for the counterpart locale
+  - set `<html lang="en">` or `<html lang="zh-Hant-TW">`
+  - `link rel="alternate" hreflang="..."` for the counterpart locale
   - canonical URL per locale path
 
 ---
@@ -313,11 +268,9 @@ src/
 ├── components/
 │   ├── LeftColumn.astro             # sticky sidebar: name, tagline, nav, lang switch, theme toggle, social links
 │   ├── ExperienceEntry.astro        # single experience card
-│   ├── ProjectCard.astro            # single project card
-│   └── WritingEntry.astro           # single writing entry
+│   └── ProjectCard.astro            # single project card (optional thumbnail + external URL)
 ├── content/
-│   ├── projects/                    # MDX project case studies ({name}-en.mdx, {name}-zh.mdx)
-│   └── writing/                     # MDX blog posts ({name}-en.mdx, {name}-zh.mdx)
+│   └── projects/                    # MDX project case studies ({name}-en.mdx, {name}-zh.mdx)
 ├── content.config.ts                # Astro content collection schemas (Zod + glob loader)
 ├── data/
 │   ├── resume.en.json               # English resume data
@@ -333,7 +286,6 @@ src/
 ### Implementation notes vs. original plan
 
 - **No separate components for ThemeToggle, LanguageSwitch, SectionNav, or ScrollSpy** — these are inlined into `LeftColumn.astro` and `MainLayout.astro` for simplicity (fewer files, fewer layers)
-- **No `DetailLayout.astro` yet** — detail pages (`/projects/[slug]`, `/writing/[slug]`) are deferred
 - **Scroll-spy uses inline `<script is:inline>`** in `MainLayout.astro` instead of an Astro island
 - **About section uses `set:html`** to allow HTML (links, bold) in i18n strings
 
@@ -346,7 +298,6 @@ src/
 - Smooth scroll on nav link click
 - Light/Dark theme toggle works and persists (no FOUC)
 - English + zh-TW versions accessible and consistent
-- Detail pages for projects and writing render correctly with back links
 - Resume experience section renders from JSON; PDF downloadable
 - Responsive: stacks to single column on mobile
 - Clean URLs, canonical + hreflang present
