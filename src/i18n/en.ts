@@ -6,7 +6,6 @@ export const en = {
   "nav.about": "About",
   "nav.experience": "Experience",
   "nav.projects": "Projects",
-  "nav.writing": "Writing",
 
   "about.p1":
     "Product Manager and Product Owner focused on modernizing regulated enterprise software with AI-native capabilities — where reliability, governance, and real-world usability matter more than hype.",

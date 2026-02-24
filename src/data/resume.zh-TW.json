@@ -1,28 +1,32 @@
 {
   "experience": [
     {
-      "company": "Nexus Technologies",
-      "title": "資深軟體工程師",
-      "url": "https://example.com",
-      "dates": "2022 — 至今",
-      "description": "帶領前端平台團隊建構供 40 位以上工程師使用的設計系統。規劃微前端遷移架構，將部署時間縮短 60%，並提升團隊自主性。指導初階開發者，推動全組織導入 TypeScript。",
-      "skills": ["TypeScript", "React", "Node.js", "AWS", "Design Systems"]
+      "company": "叡揚資訊股份有限公司",
+      "title": "產品經理",
+      "dates": "2024 — 至今",
+      "description": "負責台灣領先公文系統的產品策略，年度產品營收成長超過一倍。帶領 10 位以上跨職能成員交付人機協作 AI Agent 與 ML 智慧分文（準確率 85–95%），服務 400 以上政府與企業客戶，兼顧企業客製化、可擴展性及 ISO 27001/27701 合規。",
+      "skills": ["Strategy", "Agent", "LLM", "Governance", "Leadership"]
     },
     {
-      "company": "Streamline Digital",
+      "company": "叡揚資訊股份有限公司",
+      "title": "產品開發經理",
+      "dates": "2023 — 2024",
+      "description": "統籌 LLM/NLP 驅動的公文生成產品化，協調 AI 研究、工程與售前團隊。主導以 Azure 為基礎的安全 SaaS 架構，並評估企業客製化專案的投資報酬率，確保在受監管環境中實現可擴展交付與可衡量的商業成果。",
+      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "Docker"]
+    },
+    {
+      "company": "叡揚資訊股份有限公司",
+      "title": "軟體設計師 & 系統分析師",
+      "dates": "2021 — 2023",
+      "description": "以領域驅動設計打造模組化系統，並推出平台首個結合 OpenSearch 與向量嵌入的 AI 語意搜尋功能。建置 DevSecOps 管線（SAST/DAST/SCA），交付 TW-FidO 數位簽章與加密功能，強化合規與資安防護。",
+      "skills": ["DDD", "TDD", "FidO", "Architecture", "DevSecOps"]
+    },
+    {
+      "company": "叡揚資訊股份有限公司",
       "title": "軟體工程師",
-      "url": "https://example.com",
-      "dates": "2020 — 2022",
-      "description": "為企業客戶建構與維護面向使用者的網頁應用程式。使用 WebSocket 實作即時協作功能，使用者參與度提升 35%。設計 RESTful API 並優化資料庫查詢，回應時間提升 10 倍。",
-      "skills": ["React", "Python", "PostgreSQL", "Redis", "Docker"]
-    },
-    {
-      "company": "Bright Studio",
-      "title": "初階開發者",
-      "url": "https://example.com",
-      "dates": "2018 — 2020",
-      "description": "為代理商客戶開發響應式行銷網站與電商平台。導入元件驅動的開發流程與自動化測試管線，將 QA 時間縮短一半。",
-      "skills": ["JavaScript", "Vue.js", "Sass", "WordPress", "CI/CD"]
+      "dates": "2016 — 2022",
+      "description": "從初階工程師成長為資深工程師，開發瀏覽器端所見即所得編輯器，並以 .NET、SQL 與 Kendo UI 貢獻全端功能。2019 年發起公司首個 ML 推薦專案，拓展核心平台的 AI 能力。",
+      "skills": ["Typescript", ".NET", "SQL", "Kendo UI"]
     }
   ]
 }

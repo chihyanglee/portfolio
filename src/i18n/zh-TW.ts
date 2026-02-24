@@ -1,27 +1,28 @@
 import type { TranslationKey } from "./en";
 
 export const zhTW: Record<TranslationKey, string> = {
-  name: "陳奕翰",
-  title: "資深軟體工程師",
-  tagline: "我打造兼具設計感與工程品質的網頁體驗。",
+  name: "李治揚",
+  title: "資深產品經理",
+  tagline: "我融合策略、系統設計與 LLM 技術，將複雜的企業工作轉化為 AI 原生產品——交付自然、安全且能驅動營收成長的人機協作 Agent。",
 
   "nav.about": "關於我",
   "nav.experience": "經歷",
   "nav.projects": "專案",
-  "nav.writing": "文章",
 
   "about.p1":
-    "我是一名熱衷於打造兼具技術品質與使用者體驗產品的軟體工程師。過去幾年間，我曾在新創公司、設計工作室和企業團隊中工作，參與過從設計系統到資料管線等各種專案。",
+    "專注於以 AI 原生能力現代化受監管企業軟體的產品經理暨產品負責人——在這裡，可靠性、治理與實際可用性比炒作更重要。",
   "about.p2":
-    "目前我主要專注於建構無障礙、高效能的網頁應用，並帶領跨職能團隊完成複雜的產品上線。我非常重視整潔的架構、開發者體驗，以及讓網路變得更好。",
+    "在<a href='https://www.gss.com.tw' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>叡揚資訊 (GSS)</a>，我花了近十年協助打造並持續進化台灣領先的<a href='https://www.gss.com.tw/speed' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>公文管理系統</a>。如今，我負責服務 300 以上政府與企業組織的系統產品策略與路線圖，將一個 30 年的既有平台轉型為結合雲端/地端 LLM、RAG 與人機協作工作流程的 AI 原生產品。",
   "about.p3":
-    "不在電腦前的時候，你會發現我在步道上健行、嘗試底片攝影，或是沉浸在一本好的科幻小說裡。",
+    "在轉任產品領導之前擁有十年工程經驗，讓我能將模型效能、系統可擴展性與 ISO 27001/27701 合規整合為可衡量的成果。",
+  "about.p4":
+    "工作之餘，我持續動手實作——用 OpenSpec/Speckit 撰寫規格，並以 Claude Code 和 Cursor 快速打造 POC。",
 
   "experience.resume": "查看完整履歷",
 
   "projects.archive": "查看完整專案列表",
 
-  "footer.built": "以 Astro 與 Tailwind CSS 建構。設計靈感來自",
+  "footer.built": "以 Astro 與 Tailwind CSS 建構。",
 
   "theme.light": "切換為淺色模式",
   "theme.dark": "切換為深色模式",

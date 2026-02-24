@@ -3,17 +3,15 @@ import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import ExperienceEntry from "../../components/ExperienceEntry.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
-import WritingEntry from "../../components/WritingEntry.astro";
 import { t } from "../../i18n";
 import resumeData from "../../data/resume.zh-TW.json";
 
 const lang = "zh-TW" as const;
 
 const allProjects = await getCollection("projects");
-const projects = allProjects.filter((p) => p.data.lang === "zh-TW" && p.data.featured);
-
-const allWriting = await getCollection("writing");
-const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
+const projects = allProjects
+  .filter((p) => p.data.lang === "zh-TW" && p.data.featured)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 ---
 
 <MainLayout lang={lang}>
@@ -38,7 +36,6 @@ const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
         <ExperienceEntry
           dates={entry.dates}
           company={entry.company}
-          url={entry.url}
           title={entry.title}
           description={entry.description}
           skills={entry.skills}
@@ -47,7 +44,7 @@ const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
     </ol>
     <div class="mt-12">
       <a
-        href="/resume-zh.pdf"
+        href="/ChihYangLee_Resume_en-us.pdf" target="_blank"
         class="inline-flex items-center font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300"
       >
         <span>{t("experience.resume", lang)}</span>
@@ -68,25 +65,8 @@ const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
           title={project.data.title}
           summary={project.data.summary}
           stack={project.data.stack}
-          slug={project.data.urlSlug}
-          lang={lang}
-        />
-      ))}
-    </ul>
-  </section>
-
-  <section id="writing" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-100/75 px-6 py-5 backdrop-blur-sm md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 dark:bg-slate-900/75">
-      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only">{t("nav.writing", lang)}</h2>
-    </div>
-    <ul class="group/list space-y-12">
-      {writing.map((post) => (
-        <WritingEntry
-          title={post.data.title}
-          date={post.data.date}
-          description={post.data.description}
-          slug={post.data.urlSlug}
-          lang={lang}
+          url={project.data.url}
+          thumbnail={project.data.thumbnail}
         />
       ))}
     </ul>
@@ -95,7 +75,6 @@ const writing = allWriting.filter((w) => w.data.lang === "zh-TW");
   <footer class="pb-16 text-sm text-slate-500 sm:pb-0">
     <p>
       {t("footer.built", lang)}
-      </a>.
     </p>
   </footer>
 </MainLayout>
