@@ -27,6 +27,10 @@ export const en = {
 
   "lang.switch": "中文",
   "lang.switchLabel": "切換至中文版",
+
+  "meta.title": "Simon Lee — Product Manager",
+  "meta.description":
+    "Portfolio of Simon Lee, Senior Product Manager specializing in AI-native enterprise products, human-in-the-loop agents, and LLM-driven workflows.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

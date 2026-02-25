@@ -1,6 +1,6 @@
 ---
 import type { Lang } from "../i18n";
-import { getLocalePath, getAlternateLang, getHtmlLang } from "../i18n";
+import { t, getLocalePath, getAlternateLang, getHtmlLang } from "../i18n";
 import { ClientRouter } from "astro:transitions";
 import LeftColumn from "../components/LeftColumn.astro";
 import "../styles/global.css";
@@ -15,6 +15,24 @@ const altLang = getAlternateLang(lang);
 const altPath = getLocalePath(altLang);
 const currentPath = getLocalePath(lang);
 const siteUrl = "https://chihyanglee.cc";
+
+const metaTitle = t("meta.title", lang);
+const metaDescription = t("meta.description", lang);
+const canonicalUrl = `${siteUrl}${currentPath}`;
+const ogLocale = lang === "en" ? "en_US" : "zh_TW";
+const ogImage = `${siteUrl}/favicon.svg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: t("name", lang),
+  jobTitle: t("title", lang),
+  url: siteUrl,
+  sameAs: [
+    "https://github.com/chihyanglee",
+    "https://www.linkedin.com/in/chihyanglee/",
+  ],
+};
 ---
 
 <!doctype html>
@@ -22,9 +40,24 @@ const siteUrl = "https://chihyanglee.cc";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simon Lee — Product Manager</title>
-    <meta name="description" content="Personal portfolio of Simon Lee, Product Manager." />
-    <link rel="canonical" href={`${siteUrl}${currentPath}`} />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content={t("name", lang)} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="alternate" hreflang="en" href={`${siteUrl}/`} />
     <link rel="alternate" hreflang="zh-Hant-TW" href={`${siteUrl}/zh/`} />
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
@@ -33,6 +66,9 @@ const siteUrl = "https://chihyanglee.cc";
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
     <ClientRouter />
     <!-- Theme script: runs before paint to prevent FOUC -->
     <script is:inline>

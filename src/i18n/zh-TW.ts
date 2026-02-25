@@ -29,4 +29,8 @@ export const zhTW: Record<TranslationKey, string> = {
 
   "lang.switch": "EN",
   "lang.switchLabel": "Switch to English",
+
+  "meta.title": "李治揚 — 產品經理",
+  "meta.description":
+    "李治揚的作品集——資深產品經理，專注於 AI 原生企業產品、人機協作 Agent 與 LLM 驅動工作流程。",
 };
