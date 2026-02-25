@@ -2,6 +2,14 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* Smooth theme transitions — only active during toggle, not on page load */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease !important;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 

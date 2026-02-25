@@ -70,3 +70,9 @@ pnpm preview         # preview production build locally
 ## Implementation Notes
 
 - **Tailwind v4:** CSS-first configuration — no `tailwind.config.js`. Use `@import "tailwindcss"` in a CSS file and configure via `@theme` directives.
+- **Dark mode variant** is declared in `global.css` as `@variant dark (&:where(.dark, .dark *));` — use `dark:` prefix in classes as usual.
+- **Color palette:** slate grays + teal accent, defined as `@theme` tokens in `global.css`. Stay consistent with these.
+- **i18n type safety:** `en.ts` exports `TranslationKey` (derived from its keys). All translation keys must be added to `en.ts` first — `zh-TW.ts` must match the same keys.
+- **Content collections use `glob()` loader** (Astro 5 pattern) in `src/content.config.ts`, not the legacy file-based collections.
+- **No linter, formatter, or test runner** is configured. `pnpm build` is the only validation command.
+- **Deployment:** pushing to `main` triggers GitHub Actions → `pnpm build` → rsync `dist/` to VPS. CI uses Node 24 / pnpm 9.
