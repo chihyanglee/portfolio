@@ -39,12 +39,15 @@ pnpm preview         # preview production build locally
 - `src/components/LeftColumn.astro` — sticky left column (nav, lang switch, theme toggle, social links)
 - `src/components/ExperienceEntry.astro` — single experience card
 - `src/components/ProjectCard.astro` — single project card with optional thumbnail and external URL
+- `src/pages/404.astro` — standalone page (does NOT use MainLayout); has its own `<html>`, inline theme script, and bilingual 404 message
 
 ### i18n (two-locale routing)
 
 - English at `/`, Traditional Chinese at `/zh/`
 - Single-page index: `src/pages/index.astro` (en) and `src/pages/zh/index.astro` (zh-TW)
+- **Both index pages are near-identical** — they differ only in `lang` constant, resume JSON import path, and project filter. Any structural change to one **must be mirrored** in the other.
 - UI strings in `src/i18n/en.ts` and `src/i18n/zh-TW.ts` with a `t(key, lang)` helper
+- `src/i18n/index.ts` exports helpers: `t()`, `getLangFromUrl()`, `getLocalePath()`, `getAlternateLang()`, `getHtmlLang()`
 - Layouts accept a `lang` prop; every page sets `<html lang>`, `hreflang` alternates, and canonical URL
 
 ### Content model
@@ -64,13 +67,14 @@ pnpm preview         # preview production build locally
 - Static-first: no server runtime, pure SSG output
 - Resume PDF files live in `public/`
 - About section uses `set:html` to allow HTML (links, bold) in i18n strings
-- Content files use `{name}-en.mdx` / `{name}-zh.mdx` naming to avoid ID collisions in the content store
+- Content files use `{sortOrder}-{name}-{locale}.mdx` naming (e.g., `1-speed-en.mdx`, `2-vital-od-zh.mdx`) to avoid ID collisions in the content store
 - `urlSlug` instead of `slug` in frontmatter because `slug` is reserved by Astro's glob content loader
 
 ## Implementation Notes
 
 - **Tailwind v4:** CSS-first configuration — no `tailwind.config.js`. Use `@import "tailwindcss"` in a CSS file and configure via `@theme` directives.
 - **Dark mode variant** is declared in `global.css` as `@variant dark (&:where(.dark, .dark *));` — use `dark:` prefix in classes as usual.
+- **Theme transitions:** A `.theme-transitioning` class is temporarily added to `<html>` during the toggle to animate `background-color`, `color`, and `border-color` over 300ms. This avoids FOUC on initial load while still providing smooth transitions when the user clicks the toggle.
 - **Color palette:** slate grays + teal accent, defined as `@theme` tokens in `global.css`. Stay consistent with these.
 - **i18n type safety:** `en.ts` exports `TranslationKey` (derived from its keys). All translation keys must be added to `en.ts` first — `zh-TW.ts` must match the same keys.
 - **Content collections use `glob()` loader** (Astro 5 pattern) in `src/content.config.ts`, not the legacy file-based collections.
