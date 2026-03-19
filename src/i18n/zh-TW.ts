@@ -19,10 +19,15 @@ export const zhTW: Record<TranslationKey, string> = {
     "工作之餘，我持續動手實作——用 OpenSpec/Speckit 撰寫規格，並以 Claude Code 和 Cursor 快速打造 POC。",
 
   "experience.resume": "查看完整履歷",
+  "experience.downloadPdf": "下載 PDF",
 
   "projects.archive": "查看完整專案列表",
 
-  "footer.built": "以 Astro 與 Tailwind CSS 建構。",
+  "status.open": "開放工作機會洽談",
+  "status.showOpen": "true",
+
+  "footer.copyright": "© 2026 李治揚",
+  "footer.source": "原始碼",
 
   "theme.light": "切換為淺色模式",
   "theme.dark": "切換為深色模式",

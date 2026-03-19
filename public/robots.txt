@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /resume/
+Disallow: /zh/resume/
 Sitemap: https://chihyanglee.cc/sitemap-index.xml
