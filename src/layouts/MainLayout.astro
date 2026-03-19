@@ -20,7 +20,7 @@ const metaTitle = t("meta.title", lang);
 const metaDescription = t("meta.description", lang);
 const canonicalUrl = `${siteUrl}${currentPath}`;
 const ogLocale = lang === "en" ? "en_US" : "zh_TW";
-const ogImage = `${siteUrl}/favicon.svg`;
+const ogImage = `${siteUrl}/og-image.png`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -42,7 +42,7 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{metaTitle}</title>
     <meta name="description" content={metaDescription} />
     <link rel="canonical" href={canonicalUrl} />

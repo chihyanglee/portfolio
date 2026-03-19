@@ -11,7 +11,7 @@ html.theme-transitioning *::after {
 }
 
 @theme {
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Outfit", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;

@@ -17,10 +17,15 @@ export const en = {
     "Outside work, I stay hands-on by turning ideas into quick POCs—spec’ing with OpenSpec/Speckit and building demos with Claude Code and Cursor.",
 
   "experience.resume": "View Full Résumé",
+  "experience.downloadPdf": "Download PDF",
 
   "projects.archive": "View Full Project Archive",
 
-  "footer.built": "Built with Astro & Tailwind CSS.",
+  "status.open": "Open to opportunities",
+  "status.showOpen": "true",
+
+  "footer.copyright": "© 2026 Simon Lee",
+  "footer.source": "Source",
 
   "theme.light": "Switch to light mode",
   "theme.dark": "Switch to dark mode",

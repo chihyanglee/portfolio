@@ -8,7 +8,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://chihyanglee.cc',
   trailingSlash: 'always',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({
+    filter: (page) => !page.includes('/resume/'),
+  })],
   vite: {
     plugins: [tailwindcss()],
   },
