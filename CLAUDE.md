@@ -11,6 +11,7 @@ Personal bilingual portfolio site. Single-page two-column layout. See `PRD.md` f
 - **Framework:** Astro (SSG) + TypeScript, scaffolded via `pnpm create astro@latest`
 - **Styling:** Tailwind CSS v4 (`@tailwindcss/vite` plugin), dark mode via `class="dark"` on `<html>`
 - **Content:** MDX for projects; JSON for resume data
+- **SEO:** `@astrojs/sitemap` generates a sitemap (filtered to exclude `/resume/`)
 - **Deployment:** Static output to VPS via GitHub Actions, served by Caddy with Docker Compose
 
 ## Build Commands
@@ -79,4 +80,4 @@ pnpm preview         # preview production build locally
 - **i18n type safety:** `en.ts` exports `TranslationKey` (derived from its keys). All translation keys must be added to `en.ts` first — `zh-TW.ts` must match the same keys.
 - **Content collections use `glob()` loader** (Astro 5 pattern) in `src/content.config.ts`, not the legacy file-based collections.
 - **No linter, formatter, or test runner** is configured. `pnpm build` is the only validation command.
-- **Deployment:** pushing to `main` triggers GitHub Actions → `pnpm build` → rsync `dist/` to VPS. CI uses Node 24 / pnpm 9.
+- **Deployment:** pushing to `main` triggers GitHub Actions → `pnpm build` → rsync `dist/` to VPS. CI reads Node version from `.node-version` (currently 24) and uses pnpm 9.
