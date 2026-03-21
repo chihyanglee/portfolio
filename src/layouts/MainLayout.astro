@@ -11,6 +11,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const htmlLang = getHtmlLang(lang);
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const altLang = getAlternateLang(lang);
 const altPath = getLocalePath(altLang);
 const currentPath = getLocalePath(lang);
@@ -72,6 +74,9 @@ const jsonLd = {
     <!-- JSON-LD structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
+    {umamiUrl && umamiWebsiteId && (
+      <script is:inline defer src={`${umamiUrl}/script.js`} data-website-id={umamiWebsiteId}></script>
+    )}
     <ClientRouter />
     <!-- Theme script: runs before paint to prevent FOUC -->
     <script is:inline>

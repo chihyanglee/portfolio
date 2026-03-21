@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 ---
 
 <!doctype html>
@@ -15,6 +17,9 @@ import "../styles/global.css";
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    {umamiUrl && umamiWebsiteId && (
+      <script is:inline defer src={`${umamiUrl}/script.js`} data-website-id={umamiWebsiteId}></script>
+    )}
     <script is:inline>
       (function () {
         var stored = localStorage.getItem("theme");

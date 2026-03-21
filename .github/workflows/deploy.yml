@@ -35,6 +35,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          PUBLIC_UMAMI_URL: ${{ secrets.PUBLIC_UMAMI_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.PUBLIC_UMAMI_WEBSITE_ID }}
 
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.9.0
