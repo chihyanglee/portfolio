@@ -24,6 +24,8 @@ export const en = {
   "status.open": "Open to opportunities",
   "status.showOpen": "true",
 
+  "social.blog": "Blog",
+
   "footer.copyright": "© 2026 Simon Lee",
   "footer.source": "Source",
 

@@ -26,6 +26,8 @@ export const zhTW: Record<TranslationKey, string> = {
   "status.open": "開放工作機會洽談",
   "status.showOpen": "true",
 
+  "social.blog": "部落格",
+
   "footer.copyright": "© 2026 李治揚",
   "footer.source": "原始碼",
 
