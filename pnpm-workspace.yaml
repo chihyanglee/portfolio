@@ -5,10 +5,15 @@ packages:
 # a map of package matchers to booleans. Same intent as before: deny these install
 # scripts. Both ship prebuilt platform binaries (@img/sharp-linux-x64,
 # @esbuild/linux-x64), so the scripts are redundant fallbacks. Verified with them
-# denied: sharp loads libvips 8.17.3 and `astro build` re-encodes images.
+# denied: sharp loads libvips 8.18.3 and `astro build` re-encodes images.
 #
 # pnpm 11 fails the install outright if a dependency with a lifecycle script is
 # neither allowed nor denied, so new such dependencies need an entry here.
 allowBuilds:
   esbuild: false
   sharp: false
+
+# Astro's @astrojs/internal-helpers pins smol-toml 1.6.0, which has a DoS advisory
+# (GHSA-v3rj-xjv7-4jmq). Override to the patched line. Removable once Astro bumps it.
+overrides:
+  smol-toml: '^1.8.0'

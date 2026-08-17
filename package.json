@@ -10,9 +10,9 @@
     "sync:resume": "cp -f private/resume/resume.en.json private/resume/resume.zh-TW.json src/data/"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.2",
+    "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.0.7",
+    "astro": "^7.2.2",
     "sharp": "^0.35.3"
   },
   "devDependencies": {
