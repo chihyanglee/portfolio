@@ -25,12 +25,12 @@ jobs:
           submodules: false
 
       - name: Setup tools (node, pnpm) from mise.toml
-        uses: jdx/mise-action@v3
+        uses: jdx/mise-action@v4
 
       # mise-action caches the tool installs but not the pnpm store, which
       # actions/setup-node used to handle via `cache: pnpm`.
       - name: Cache pnpm store
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.local/share/pnpm/store
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
