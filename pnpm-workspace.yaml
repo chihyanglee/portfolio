@@ -1,5 +1,14 @@
 packages:
   - "."
-ignoredBuiltDependencies:
-  - esbuild
-  - sharp
+
+# `ignoredBuiltDependencies` was removed in pnpm 11 and replaced by `allowBuilds`,
+# a map of package matchers to booleans. Same intent as before: deny these install
+# scripts. Both ship prebuilt platform binaries (@img/sharp-linux-x64,
+# @esbuild/linux-x64), so the scripts are redundant fallbacks. Verified with them
+# denied: sharp loads libvips 8.17.3 and `astro build` re-encodes images.
+#
+# pnpm 11 fails the install outright if a dependency with a lifecycle script is
+# neither allowed nor denied, so new such dependencies need an entry here.
+allowBuilds:
+  esbuild: false
+  sharp: false

@@ -24,16 +24,17 @@ jobs:
           # deploy key for the private repo has to exist in CI.
           submodules: false
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
+      - name: Setup tools (node, pnpm) from mise.toml
+        uses: jdx/mise-action@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v5
+      # mise-action caches the tool installs but not the pnpm store, which
+      # actions/setup-node used to handle via `cache: pnpm`.
+      - name: Cache pnpm store
+        uses: actions/cache@v4
         with:
-          node-version-file: .node-version
-          cache: pnpm
+          path: ~/.local/share/pnpm/store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
 
       - name: Install deps
         run: pnpm install --frozen-lockfile

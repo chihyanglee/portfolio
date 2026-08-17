@@ -1,0 +1,8 @@
+# Single source of truth for tool versions — local and CI both read this file.
+# CI installs these via jdx/mise-action; do not add a `packageManager` field to
+# package.json or a .node-version file, or versions will drift between them.
+[tools]
+node = "24"
+# Pinned exactly: pnpm 11.20 re-keyed lockfiles with registry-qualified entries,
+# so a version drift here produces lockfile churn on every install.
+pnpm = "11.22.0"

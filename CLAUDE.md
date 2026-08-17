@@ -16,13 +16,14 @@ Personal bilingual portfolio site. Single-page two-column layout. See `PRD.md` f
 
 ## Build Commands
 
-This project uses **pnpm** as its package manager.
+This project uses **pnpm 11** as its package manager. Tool versions come from `mise.toml` — run `mise install` once, and `mise trust` if prompted.
 
 ```bash
 pnpm install         # install dependencies
 pnpm dev             # local dev server
 pnpm build           # production build to dist/
 pnpm preview         # preview production build locally
+pnpm sync:resume     # copy canonical resume JSON from private/ into src/data/
 ```
 
 ## Architecture
@@ -89,4 +90,5 @@ pnpm preview         # preview production build locally
 - **i18n type safety:** `en.ts` exports `TranslationKey` (derived from its keys). All translation keys must be added to `en.ts` first — `zh-TW.ts` must match the same keys.
 - **Content collections use `glob()` loader** (Astro 5 pattern) in `src/content.config.ts`, not the legacy file-based collections.
 - **No linter, formatter, or test runner** is configured. `pnpm build` is the only validation command.
-- **Deployment:** pushing to `main` triggers GitHub Actions → `pnpm build` → rsync `dist/` to VPS. CI reads Node version from `.node-version` (currently 24) and uses pnpm 9.
+- **Deployment:** pushing to `main` triggers GitHub Actions → `pnpm build` → rsync `dist/` to VPS. CI installs Node and pnpm with `jdx/mise-action` from `mise.toml` — the same file used locally, so versions cannot drift. There is deliberately **no** `.node-version` and no `packageManager` field in `package.json`; either would be a second source of truth.
+- **pnpm settings live in `pnpm-workspace.yaml`** — pnpm 11 no longer reads settings from `.npmrc` or the `pnpm` field in `package.json`. It denies the `sharp` and `esbuild` install scripts via `allowBuilds` (which replaced pnpm 10's `ignoredBuiltDependencies`); both ship prebuilt platform binaries, so the scripts are unnecessary. pnpm 11 **fails the install** if a dependency with a lifecycle script is neither allowed nor denied, so a new such dependency requires an explicit entry there.
