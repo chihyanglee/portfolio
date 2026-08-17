@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # The private submodule is never needed to build: the latest resume
+          # content is already committed to src/data/. Keeping this off means no
+          # deploy key for the private repo has to exist in CI.
+          submodules: false
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4

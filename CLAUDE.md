@@ -56,6 +56,15 @@ pnpm preview         # preview production build locally
 - **Projects** (`src/content/projects/`): MDX with frontmatter — `title`, `summary`, `role`, `tags`, `stack`, `outcomes`, `featured`, `lang`, `urlSlug`, `url` (optional), `thumbnail` (optional), `sortOrder`
 - **Resume** (`src/data/resume.en.json`, `src/data/resume.zh-TW.json`): structured JSON driving the experience section — `experience[]` (company, title, dates, description, skills[])
 
+### Private submodule (`private/`)
+
+`private/` is a **git submodule** pointing at the private `portfolio-private` repo. It holds the canonical resume JSON plus the working conversations that produced each revision. See `private/CLAUDE.md` for its conventions.
+
+- **`src/data/resume.*.json` are copies, not sources.** Edit `private/resume/resume.*.json`, then run `pnpm sync:resume` and commit the resulting diff. Editing `src/data/` directly gets silently overwritten on the next sync.
+- **Never copy anything from `private/conversations/` into the public repo.**
+- CI pins `submodules: false` — the build never needs `private/`, so no deploy key for the private repo exists.
+- Committing a change inside `private/` takes two commits: one in the submodule, then a pointer bump in this repo.
+
 ### Theme system
 
 - Inline `<head>` script reads `localStorage.theme`, falls back to `prefers-color-scheme`, toggles `class="dark"` on `<html>` — no FOUC
