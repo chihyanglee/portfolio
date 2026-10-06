@@ -4,6 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import ExperienceEntry from "../../components/ExperienceEntry.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 import { t } from "../../i18n";
+import { lastUpdated } from "../../lib/lastUpdated";
 import resumeData from "../../data/resume.zh-TW.json";
 
 const lang = "zh-TW" as const;
@@ -84,7 +85,7 @@ const projects = allProjects
 
   <footer class="pb-16 text-sm text-slate-500 sm:pb-0">
     <p>
-      {t("footer.copyright", lang)} · <a href="https://github.com/chihyanglee/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-teal-500 dark:hover:text-teal-300">{t("footer.source", lang)}</a>
+      {t("footer.copyright", lang)} · <a href="https://github.com/chihyanglee/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-teal-500 dark:hover:text-teal-300">{t("footer.source", lang)}</a> · {t("footer.updated", lang).replace("{date}", lastUpdated(lang))}
     </p>
   </footer>
 </MainLayout>

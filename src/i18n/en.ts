@@ -35,6 +35,7 @@ export const en = {
 
   "footer.copyright": "© 2026 Simon Lee",
   "footer.source": "Source",
+  "footer.updated": "Last updated {date}",
 
   "theme.light": "Switch to light mode",
   "theme.dark": "Switch to dark mode",

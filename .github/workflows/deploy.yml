@@ -23,6 +23,9 @@ jobs:
           # content is already committed to src/data/. Keeping this off means no
           # deploy key for the private repo has to exist in CI.
           submodules: false
+          # Full history: the "Last updated" date is the last commit touching content
+          # (src/lib/lastUpdated.ts). A shallow clone can't see it and fails the build.
+          fetch-depth: 0
 
       - name: Setup tools (node, pnpm) from mise.toml
         uses: jdx/mise-action@v4

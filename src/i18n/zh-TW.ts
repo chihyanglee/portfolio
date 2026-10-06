@@ -37,6 +37,7 @@ export const zhTW: Record<TranslationKey, string> = {
 
   "footer.copyright": "© 2026 李治揚",
   "footer.source": "原始碼",
+  "footer.updated": "最後更新：{date}",
 
   "theme.light": "切換為淺色模式",
   "theme.dark": "切換為深色模式",

@@ -1,5 +1,6 @@
 ---
 import { t, getHtmlLang, getLocalePath, type Lang } from "../i18n";
+import { lastUpdated } from "../lib/lastUpdated";
 import type resumeEn from "../data/resume.en.json";
 
 interface Props {
@@ -364,6 +365,15 @@ const fonts =
         color: var(--slate-500);
       }
 
+      /* ── Updated stamp: pinned to the sheet's bottom edge, outside the flow ── */
+      .updated {
+        position: absolute;
+        right: 32px;
+        bottom: 10px;
+        font-size: 7.5pt;
+        color: var(--slate-400);
+      }
+
       /* ── zh-TW: CJK glyphs need more leading and air ── */
       :global(html:lang(zh)) body {
         font-family: "Outfit", "Noto Sans TC", system-ui, sans-serif;
@@ -472,6 +482,8 @@ const fonts =
           </section>
         </div>
       </div>
+
+      <p class="updated">{t("footer.updated", lang).replace("{date}", lastUpdated(lang))}</p>
     </div>
 
     <div class="print-bar">
