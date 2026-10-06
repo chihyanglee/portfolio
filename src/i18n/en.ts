@@ -10,14 +10,21 @@ export const en = {
   "about.p1":
     "Product Manager and Product Owner focused on modernizing regulated enterprise software with AI-native capabilities — where reliability, governance, and real-world usability matter more than hype.",
   "about.p2":
-    "At <a href='https://www.gss.com.tw' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>Galaxy Software Services (GSS)</a>, I’ve spent nearly a decade helping build and evolve Taiwan’s leading <a href='https://www.gss.com.tw/speed' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>official document system </a>. Today, I own the product strategy and roadmap for a system serving 300+ government and enterprise organizations, transforming a 30-year legacy platform into an agentic product with cloud/on-prem LLMs, RAG, and human–AI workflows.",
+    "At <a href='https://www.gss.com.tw' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>Galaxy Software Services (GSS)</a>, I’ve spent a decade helping build and evolve Taiwan’s leading <a href='https://www.gss.com.tw/speed' target='_blank' class='font-medium text-slate-800 dark:text-slate-200 hover:text-teal-500 dark:hover:text-teal-300'>official document system </a>. Today, I own the product strategy and roadmap for a system serving 400+ government and enterprise organizations, transforming a 30-year legacy platform into an agentic product with cloud/on-prem LLMs, RAG, and human–AI workflows.",
   "about.p3":
-    "With a decade in engineering before product leadership, I bridge model performance, system scalability, and ISO 27001/27701 compliance into measurable outcomes.",
+    "With seven years in engineering before moving into product, I bridge model performance, system scalability, and ISO 27001/27701 compliance into measurable outcomes.",
   "about.p4":
     "Outside work, I stay hands-on by turning ideas into quick POCs—spec’ing with OpenSpec/Speckit and building demos with Claude Code and Cursor.",
 
   "experience.resume": "View Full Résumé",
   "experience.downloadPdf": "Download PDF",
+
+  "resume.docTitle": "Simon Lee — Résumé",
+  "resume.skills": "Skills",
+  "resume.education": "Education",
+  "resume.certifications": "Certifications & Training",
+  "resume.back": "Portfolio",
+  "resume.print": "Print / Save PDF",
 
   "projects.archive": "View Full Project Archive",
 

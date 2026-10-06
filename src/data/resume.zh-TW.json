@@ -1,32 +1,85 @@
 {
+  "summary": "專注將 Agentic AI 導入高資安要求政府與企業系統的產品經理。負責台灣市場領先公文系統 SPEED 的產品路線圖，服務 400+ 政府與企業組織；已上線採地端 LLM、由人工覆核的 AI Agent，以及正式環境準確率 85–95% 的 ML 智慧分文。轉任產品前累積七年全端開發經驗，能直接與工程團隊權衡模型品質、硬體限制與 ISO 27001/27701 合規。至今仍親自動手，以 Claude Code、Codex、OpenCode 與 Pi 規劃並打造原型。",
   "experience": [
     {
       "company": "叡揚資訊股份有限公司",
       "title": "產品經理",
-      "dates": "2024 — 至今",
-      "description": "負責台灣領先公文系統的產品策略，年度產品營收成長超過一倍。帶領 10 位以上跨職能成員交付人機協作 AI Agent 與 ML 智慧分文（準確率 85–95%），服務 400 以上政府與企業客戶，兼顧企業客製化、可擴展性及 ISO 27001/27701 合規。",
-      "skills": ["Strategy", "Agent", "LLM", "Governance", "Leadership"]
+      "dates": "2024/07 — 至今",
+      "highlights": [
+        "負責台灣市場領先公文系統 SPEED 的產品路線圖，服務 400+ 政府與企業組織；決定功能優先順序，並在產品功能與客戶專案客製之間取捨，年度產品營收成長超過一倍（2022→2025）。",
+        "上線 AI Agent，可草擬公文並透過 OpenSearch RAG 精準檢索公文，採 Gemma 4 等地端 LLM 部署並由人工覆核產出；已於 4 家客戶正式上線，另有多家 POC 進行中。",
+        "以可重用的 Skills（指令＋腳本與工具）建構 Agent 能力，並帶領 9 人內部小組，透過 Open WebUI 與 OpenWork 將 Skills 的建立與使用推廣至約 100 人的事業部，涵蓋工程與非工程同仁。",
+        "上線 ML 智慧分文，各客戶正式環境準確率 85–95%；並推出可嵌入非 SPEED 系統的 Agent 產品（聊天介面＋管理後台），已於首家客戶上線。",
+        "帶領 10+ 人跨職能團隊；正在建置 MCP Server，讓 Agent 能自行規劃並執行發送公文、追查卡關公文等多步驟流程。"
+      ],
+      "skills": ["Product Strategy", "AI Agents", "Agent Skills", "RAG", "On-prem LLM", "MCP"]
     },
     {
       "company": "叡揚資訊股份有限公司",
       "title": "產品開發經理",
-      "dates": "2023 — 2024",
-      "description": "統籌 LLM/NLP 驅動的公文生成產品化，協調 AI 研究、工程與售前團隊。主導以 Azure 為基礎的安全 SaaS 架構，並評估企業客製化專案的投資報酬率，確保在受監管環境中實現可擴展交付與可衡量的商業成果。",
-      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "Docker"]
+      "dates": "2023/11 — 2024/07",
+      "highlights": [
+        "將 AI 研究原型轉化為可交付功能，協調 AI 研究、工程與售前團隊，將 LLM/NLP 公文生成導入 SPEED。",
+        "主導 Azure 安全 SaaS 版本 VITAL-OD，以免費試用轉訂閱模式開拓 NGO、NPO 與中小型機關新客群，每年新增約 50 個訂閱組織。"
+      ],
+      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "SaaS"]
     },
     {
       "company": "叡揚資訊股份有限公司",
       "title": "軟體設計師 & 系統分析師",
-      "dates": "2021 — 2023",
-      "description": "以領域驅動設計打造模組化系統，並推出平台首個結合 OpenSearch 與向量嵌入的 AI 語意搜尋功能。建置 DevSecOps 管線（SAST/DAST/SCA），交付 TW-FidO 數位簽章與加密功能，強化合規與資安防護。",
-      "skills": ["DDD", "TDD", "FidO", "Architecture", "DevSecOps"]
+      "dates": "2021/05 — 2023/11",
+      "highlights": [
+        "打造平台首個結合 OpenSearch 與向量嵌入的語意搜尋，並以領域驅動設計（DDD）規劃模組化架構。",
+        "建置 DevSecOps 管線（SAST/DAST/SCA），交付 TW FidO 數位簽章與公文加解密功能以符合法規。"
+      ],
+      "skills": ["DDD", "TDD", "OpenSearch", "DevSecOps", "TW FidO"]
     },
     {
       "company": "叡揚資訊股份有限公司",
-      "title": "軟體工程師",
-      "dates": "2016 — 2021",
-      "description": "從初階工程師成長為資深工程師，開發瀏覽器端所見即所得編輯器，並以 .NET、SQL 與 Kendo UI 貢獻全端功能。2019 年發起公司首個 ML 推薦專案，拓展核心平台的 AI 能力。",
-      "skills": ["Typescript", ".NET", "SQL", "Kendo UI"]
+      "title": "軟體工程師（初階 → 資深）",
+      "dates": "2016/06 — 2021/05",
+      "highlights": [
+        "開發符合公文格式規範的瀏覽器端所見即所得編輯器，現為 400+ 組織的核心編輯介面，並單獨銷售予外部客戶。",
+        "2019 年為 SPEED 上線第一個 ML 功能（推薦模型）；全端開發涵蓋 .NET、SQL Server、TypeScript 與 Kendo UI。"
+      ],
+      "skills": ["TypeScript", ".NET", "SQL Server", "Kendo UI", "ML"]
     }
+  ],
+  "skills": [
+    "產品策略",
+    "AI Agent 設計",
+    "LLM / RAG",
+    "地端 LLM",
+    "MCP",
+    "Agent Skills",
+    "人機協作設計",
+    "PRD 撰寫",
+    "敏捷 / Scrum",
+    "系統設計",
+    "DevSecOps",
+    "DDD",
+    ".NET",
+    "TypeScript",
+    "SQL Server",
+    "Azure",
+    "Docker",
+    "OpenSearch"
+  ],
+  "education": [
+    {
+      "school": "國立臺灣大學",
+      "year": "2014",
+      "degree": "植物病理與微生物學系 學士"
+    }
+  ],
+  "certifications": [
+    { "name": "ISO 27001 主導稽核員", "issuer": "SGS" },
+    { "name": "Certified Scrum Product Owner (CSPO)、ScrumMaster (CSM)", "issuer": "Scrum Alliance" },
+    { "name": "AZ-104、AZ-204、SC-900、DP-300", "issuer": "Microsoft" },
+    { "name": "Certified in Cybersecurity (CC)", "issuer": "ISC2" },
+    { "name": "Cybersecurity Professional Certificate V2", "issuer": "Google" },
+    { "name": "Model Context Protocol（入門與進階）、Claude Code in Action、Agent Skills、Subagents、AI Fluency 課程", "issuer": "Anthropic" },
+    { "name": "TOEIC 金色證書", "issuer": "" },
+    { "name": "JLPT N2", "issuer": "" }
   ]
 }

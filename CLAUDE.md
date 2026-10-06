@@ -39,7 +39,8 @@ pnpm sync:resume     # copy canonical resume JSON from private/ into src/data/
 
 - `src/layouts/MainLayout.astro` — two-column shell for the single-page index, includes scroll-spy + theme toggle scripts
 - `src/components/LeftColumn.astro` — sticky left column (nav, lang switch, theme toggle, social links)
-- `src/components/ExperienceEntry.astro` — single experience card
+- `src/components/ExperienceEntry.astro` — single experience card (renders a role's `highlights` as bullets)
+- `src/components/Resume.astro` — the A4 one-page résumé document, rendered entirely from resume JSON. `src/pages/resume.astro` and `src/pages/zh/resume.astro` are thin wrappers that pass `lang` + data; section labels come from the `resume.*` i18n keys. Standalone `<html>` like 404, not MainLayout
 - `src/components/ProjectCard.astro` — single project card with optional thumbnail and external URL
 - `src/pages/404.astro` — standalone page (does NOT use MainLayout); has its own `<html>`, inline theme script, and bilingual 404 message
 
@@ -55,7 +56,7 @@ pnpm sync:resume     # copy canonical resume JSON from private/ into src/data/
 ### Content model
 
 - **Projects** (`src/content/projects/`): MDX with frontmatter — `title`, `summary`, `role`, `tags`, `stack`, `outcomes`, `featured`, `lang`, `urlSlug`, `url` (optional), `thumbnail` (optional), `sortOrder`
-- **Resume** (`src/data/resume.en.json`, `src/data/resume.zh-TW.json`): structured JSON driving the experience section — `experience[]` (company, title, dates, description, skills[])
+- **Resume** (`src/data/resume.en.json`, `src/data/resume.zh-TW.json`): the whole résumé — `summary`, `experience[]` (company, title, dates, highlights[], skills[]), `skills[]`, `education[]`, `certifications[]`. Drives both the site's experience cards and the `/resume/` pages. `dates` uses a ` — ` separator that `Resume.astro` and `ExperienceEntry.astro` split on
 
 ### Private submodule (`private/`)
 
@@ -76,7 +77,7 @@ pnpm sync:resume     # copy canonical resume JSON from private/ into src/data/
 - **Keep it simple.** Prefer flat, obvious code over abstractions. Fewer files, fewer layers.
 - Minimal client-side JS — only scroll-spy observer + theme toggle; use Astro islands only when interactive behavior is required
 - Static-first: no server runtime, pure SSG output
-- Resume PDF files live in `public/`
+- Resume PDFs in `public/` are printed from the `/resume/` pages, never hand-made. Re-print them whenever resume JSON changes — the full update flow is in `private/CLAUDE.md`
 - About section uses `set:html` to allow HTML (links, bold) in i18n strings
 - Content files use `{sortOrder}-{name}-{locale}.mdx` naming (e.g., `1-speed-en.mdx`, `2-vital-od-zh.mdx`) to avoid ID collisions in the content store
 - `urlSlug` instead of `slug` in frontmatter because `slug` is reserved by Astro's glob content loader

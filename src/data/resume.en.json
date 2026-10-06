@@ -1,32 +1,85 @@
 {
+  "summary": "Product Manager who ships agentic AI into security-critical government and enterprise systems. I own the roadmap for SPEED, Taiwan's market-leading official document system serving 400+ organizations, and have shipped an on-premise LLM agent with human-in-the-loop review and ML routing at 85–95% production accuracy. Seven years of full-stack engineering before product let me weigh model quality, hardware limits, and ISO 27001/27701 compliance directly with engineering teams. I still build, planning and prototyping with Claude Code, Codex, OpenCode, and Pi.",
   "experience": [
     {
       "company": "Galaxy Software Services Corp.",
       "title": "Product Manager",
-      "dates": "2024 — Present",
-      "description": "Own product strategy for Taiwan's leading Official Document System, more than doubling annual product revenue. Lead 10+ cross-functional members to ship human-in-the-loop AI agents and ML routing (85–95% accuracy) for 400+ regulated clients, balancing enterprise customization, scalability, and ISO 27001/27701 compliance.",
-      "skills": ["Strategy", "Agent", "LLM", "Governance", "Leadership"]
+      "dates": "Jul 2024 — Present",
+      "highlights": [
+        "Own the roadmap for SPEED, Taiwan's market-leading official document system serving 400+ government and enterprise organizations, deciding what ships and trading platform features against client-specific projects; annual product revenue more than doubled from 2022 to 2025.",
+        "Shipped an AI agent to production that drafts official letters and retrieves documents through RAG search on OpenSearch, running on on-premise LLMs including Gemma 4 with human-in-the-loop review; live at 4 clients, more in POC.",
+        "Designed the agent around reusable skills (instructions plus scripts and tools), and led a 9-person internal team that rolled out skill building and use on Open WebUI and OpenWork across a ~100-person business unit, developers and non-developers alike.",
+        "Shipped ML document routing at 85–95% production accuracy across client deployments, and launched an embeddable agent product (chat widget plus admin console) for systems outside SPEED, now live at its first customer.",
+        "Lead a 10+ person cross-functional team; now building an MCP server so the agent can plan and run multi-step workflows such as dispatching documents and tracing where one is stuck."
+      ],
+      "skills": ["Product Strategy", "AI Agents", "Agent Skills", "RAG", "On-prem LLM", "MCP"]
     },
     {
       "company": "Galaxy Software Services Corp.",
       "title": "Product Development Manager",
-      "dates": "2023 — 2024",
-      "description": "Led productization of LLM/NLP-driven document generation by aligning AI Research, Engineering, and Presales teams. Directed secure Azure-based SaaS architecture and evaluated ROI for enterprise customization initiatives, ensuring scalable delivery and measurable business impact in regulated environments.",
-      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "Docker"]
+      "dates": "Nov 2023 — Jul 2024",
+      "highlights": [
+        "Turned AI research prototypes into shippable features, aligning AI Research, Engineering, and Presales to embed LLM/NLP document generation in SPEED.",
+        "Directed VITAL-OD, the secure Azure SaaS edition with a free-trial-to-subscription model, opening NGOs, NPOs, and small agencies as a new segment with ~50 new subscribing organizations per year."
+      ],
+      "skills": ["Productization", "PRD", "Agile/Scrum", "Azure", "SaaS"]
     },
     {
       "company": "Galaxy Software Services Corp.",
       "title": "Software Designer & System Analyst",
-      "dates": "2021 — 2023",
-      "description": "Designed modular systems using Domain-Driven Design and launched the platform's first AI-powered semantic search with OpenSearch and vector embeddings. Built DevSecOps pipelines (SAST/DAST/SCA) and delivered TW-FidO digital signature and encryption features to strengthen compliance and security.",
-      "skills": ["DDD", "TDD", "FidO", "Architecture", "DevSecOps"]
+      "dates": "May 2021 — Nov 2023",
+      "highlights": [
+        "Built the platform's first semantic search with OpenSearch and vector embeddings, and designed modular services using Domain-Driven Design.",
+        "Built DevSecOps pipelines (SAST/DAST/SCA) and delivered TW FidO digital signatures and document encryption for compliance."
+      ],
+      "skills": ["DDD", "TDD", "OpenSearch", "DevSecOps", "TW FidO"]
     },
     {
       "company": "Galaxy Software Services Corp.",
-      "title": "Software Engineer",
-      "dates": "2016 — 2021",
-      "description": "Progressed from junior to senior engineer, developing a browser-based WYSIWYG editor and contributing full-stack features across .NET, SQL, and Kendo UI. Initiated the company's first ML-based recommendation project in 2019, expanding AI capabilities within the core platform.",
-      "skills": ["Typescript", ".NET", "SQL", "Kendo UI"]
+      "title": "Software Engineer (Junior → Senior)",
+      "dates": "Jun 2016 — May 2021",
+      "highlights": [
+        "Built the browser-based WYSIWYG editor for regulation-compliant official documents, now the core editing experience for 400+ organizations and also sold standalone.",
+        "Shipped SPEED's first ML feature, a recommendation model, in 2019; full-stack delivery across .NET, SQL Server, TypeScript, and Kendo UI."
+      ],
+      "skills": ["TypeScript", ".NET", "SQL Server", "Kendo UI", "ML"]
     }
+  ],
+  "skills": [
+    "Product Strategy",
+    "AI Agent Design",
+    "LLM / RAG",
+    "On-prem LLM",
+    "MCP",
+    "Agent Skills",
+    "Human-in-the-Loop",
+    "PRD / Spec Writing",
+    "Agile / Scrum",
+    "System Design",
+    "DevSecOps",
+    "DDD",
+    ".NET",
+    "TypeScript",
+    "SQL Server",
+    "Azure",
+    "Docker",
+    "OpenSearch"
+  ],
+  "education": [
+    {
+      "school": "National Taiwan University",
+      "year": "2014",
+      "degree": "Bachelor's degree, Plant Pathology and Microbiology"
+    }
+  ],
+  "certifications": [
+    { "name": "ISO 27001 Lead Auditor", "issuer": "SGS" },
+    { "name": "Certified Scrum Product Owner (CSPO), ScrumMaster (CSM)", "issuer": "Scrum Alliance" },
+    { "name": "AZ-104, AZ-204, SC-900, DP-300", "issuer": "Microsoft" },
+    { "name": "Certified in Cybersecurity (CC)", "issuer": "ISC2" },
+    { "name": "Cybersecurity Professional Certificate V2", "issuer": "Google" },
+    { "name": "Model Context Protocol (Intro & Advanced), Claude Code in Action, Agent Skills, Subagents, AI Fluency courses", "issuer": "Anthropic" },
+    { "name": "TOEIC Gold Certificate", "issuer": "" },
+    { "name": "JLPT N2", "issuer": "" }
   ]
 }
